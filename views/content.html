@@ -1,0 +1,43 @@
+<body>
+    hello yaya {{ name }} {{ last }} you live in {{ city }} . You are {{ age }} years old.
+    
+    {% if age > 15 %}
+            <br> <br> you are over the age of 15! <br> <br>
+    {% endif %}
+    
+    {% for user in users %}
+            {{ user.name }} is {{ user.age }} years old. <br>
+    {% endfor %}
+    
+    <caption>
+        <strong>{{ aName }}</strong> - <em>{{ type }}</em><em> {{ owner }}</em>
+    </caption>
+    <br>
+    <thead>
+        <tr>
+        <th>names</th>
+        <th>roles</th>
+        <th>status</th>
+        </tr>
+        <br>
+    </thead>
+        <tbody>
+            {% set counter = 0 %}
+            {% for  member in crew %}
+            {% set counter = counter + 1 %}
+           
+                <tr class="
+                    {% if member.status == 'Active' %} success {% endif %}
+                    {% if member.status == 'Retired' %} old {% endif %}
+                  
+               ">
+            
+              <td> {{ counter }} </td>
+           
+                <td>{{ member.aName }}</td>
+                <td>{{ member.role }}</td>
+                <td>{{ member.status|upper }}</td><br>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </body>
